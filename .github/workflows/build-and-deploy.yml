@@ -35,10 +35,10 @@ jobs:
       - name: Deploy to EC2
         uses: appleboy/ssh-action@master
         with:
-          host: 3.110.117.88
-          username: "ec2-user"
-          password: "dev@123"
-          port: 22
+          host:  3.110.117.88
+          username:  ${{ secrets.EC2_USER }}
+          password:  ${{ secrets.PASSWORD }}
+          port:  22
           timeout:  "120s"
           script: |
             docker pull $REGISTRY_HOST/$IMAGE_NAME:latest

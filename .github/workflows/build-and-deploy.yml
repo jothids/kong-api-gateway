@@ -40,8 +40,9 @@ jobs:
           password:  ${{ secrets.PASSWORD }}
           port:  22
           timeout:  "120s"
+          envs: REGISTRY_HOST,IMAGE_NAME
           script: |
-            docker pull 3.110.117.88:5000/kong-gw:latest
-            docker stop kong-gw || true
-            docker rm kong-gw || true
-            docker run -d --name kong-gateway  -p 8000:8000 -p 8001:8001 --network host 3.110.117.88:5000/kong-gw:latest
+            docker pull $REGISTRY_HOST/$IMAGE_NAME:latest
+            docker stop $IMAGE_NAME || true
+            docker rm $IMAGE_NAME || true
+            docker run -d --name kong-gateway  -p 8000:8000 -p 8001:8001 --network host $REGISTRY_HOST/$IMAGE_NAME:latest

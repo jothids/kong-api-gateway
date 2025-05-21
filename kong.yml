@@ -1,1 +1,9 @@
-
+---
+_format_version: "3.0"
+services:
+  - name: docker-registry
+    url: http://docker-registry.service.consul:5000
+    routes:
+      - name: dr
+        paths:
+          - /dr

@@ -35,9 +35,10 @@ jobs:
       - name: Deploy to EC2
         uses: appleboy/ssh-action@v0.1.9
         with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ${{ secrets.EC2_USER }}
-          password: ${{ secrets.EC2_SSH_PASSWORD }}
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
           script: |
             docker pull $REGISTRY_HOST/$IMAGE_NAME:latest
             docker stop $IMAGE_NAME || true

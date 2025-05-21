@@ -33,7 +33,7 @@ jobs:
           docker push $REGISTRY_HOST/$IMAGE_NAME:latest
     
       - name: Deploy to EC2
-        uses: appleboy/ssh-action@v1.0.3
+        uses: appleboy/ssh-action@master
         with:
           host: 3.110.117.88
           username: "ec2-user"

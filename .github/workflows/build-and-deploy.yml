@@ -39,7 +39,7 @@ jobs:
           username: "ec2-user"
           password: "dev@123"
           port: 22
-          timeout:  120
+          timeout:  "120s"
           script: |
             docker pull $REGISTRY_HOST/$IMAGE_NAME:latest
             docker stop $IMAGE_NAME || true

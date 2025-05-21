@@ -39,7 +39,7 @@ jobs:
           username: "ec2-user"
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
-          command: |
+          script: |
             docker pull $REGISTRY_HOST/$IMAGE_NAME:latest
             docker stop $IMAGE_NAME || true
             docker rm $IMAGE_NAME || true
